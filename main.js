@@ -80,10 +80,10 @@ async function Track() {
         // 3
         if (data["3"] != "") {
             const array1 = data["3"].split("|");
-            if (array1[0] == "D") {
+            if (array1[3] == "D") {
                 document.getElementById("track-3").classList.add("progress-complete");
                 addLog(array1);
-            } else if (array1[0] == "C") {
+            } else if (array1[3] == "C") {
                 document.getElementById("track-3").classList.add("progress-error");
                 addLog(array1);
             } else {
