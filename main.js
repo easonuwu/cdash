@@ -17,7 +17,28 @@ async function addLog(array1) {
     document.getElementById("logs").innerHTML = "<p><span class='date'>" + array1[1] + "</span>  |  <span class='data'>" + array1[2] + "</span></p>" +  document.getElementById("logs").innerHTML
 }
 
+async function Exit() {
+    document.getElementById("tracknum").value = ""
+    document.getElementById("ErrorOutput").innerText = ""
+    document.getElementById("tracking").style.display = "none";
+    document.getElementById("input").style.display = "block";
+}
+
+async function Update() {
+    document.getElementById("ErrorOutput").innerText = "";
+    document.getElementById("Update").disabled = true;
+    Track()
+    document.getElementById("UpdateOutput").innerText = "Progress has been updated, next update in 30 seconds!";
+    setInterval(function() {
+        document.getElementById("UpdateOutput").innerText = "";
+    }, 5000);
+    setInterval(function() {
+        document.getElementById("Update").disabled = false;
+    }, 30000);
+}
+
 async function Track() {
+    document.getElementById("logs").innerHTML = ""
     const id = document.getElementById("tracknum").value;
     const link = "https://track.api.projects.epiceason.com/data/"
     try {

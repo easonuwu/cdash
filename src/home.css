@@ -129,3 +129,28 @@
 .data {
     font-weight: normal;
 }
+
+.xx {
+    padding: 15px 60px 15px 60px;
+    background-color: white;
+    border: none;
+    font-family: 'Montserrat';
+    font-size: 15px;
+    border-radius: 20px;
+    font-weight: bold;
+    transition: 0.2s all ease-in-out;
+}
+
+.xx:disabled {
+    background-color: rgb(255, 183, 183);
+}
+
+.xx:hover {
+    color: rgb(128, 0, 0);
+    transition: 0.2s all ease-in-out;
+    cursor: pointer;
+}
+
+#UpdateOutput {
+    color: rgb(3, 157, 3);
+}
