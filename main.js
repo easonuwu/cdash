@@ -22,6 +22,13 @@ async function Exit() {
     document.getElementById("ErrorOutput").innerText = ""
     document.getElementById("tracking").style.display = "none";
     document.getElementById("input").style.display = "block";
+    document.getElementById("track-1").setAttribute("class", "progress-item");
+    document.getElementById("track-2").setAttribute("class", "progress-item");
+    document.getElementById("track-3").setAttribute("class", "progress-item");
+    document.getElementById("track-4").setAttribute("class", "progress-item");
+    document.getElementById("track-5").setAttribute("class", "progress-item");
+    document.getElementById("track-6").setAttribute("class", "progress-item");
+    document.getElementById("track-7").setAttribute("class", "progress-item");
 }
 
 async function Update() {
@@ -80,10 +87,10 @@ async function Track() {
         // 3
         if (data["3"] != "") {
             const array1 = data["3"].split("|");
-            if (array1[3] == "D") {
+            if (array1[0] == "D") {
                 document.getElementById("track-3").classList.add("progress-complete");
                 addLog(array1);
-            } else if (array1[3] == "C") {
+            } else if (array1[0] == "C") {
                 document.getElementById("track-3").classList.add("progress-error");
                 addLog(array1);
             } else {
