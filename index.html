@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Client Dashboard | EpicEason</title>
+        <link rel="stylesheet" href="/src/theme.css">
+        <link rel="stylesheet" href="/src/home.css">
+        <script src="main.js"></script>
+    </head>
+    <body>
+        <div class="container">
+            <div class="content nav">
+                <h1 class="nav-title">Dashboard</h1>
+                <h3 class="nav-button" onclick="Activate('Track')">Track Order</h3>
+                <!-- <h3 class="nav-button">Orders</h3>
+                <h3 class="nav-button">Support</h3>
+                <h3 class="nav-button">Dev</h3>-->
+                <h3 class="nav-button bottom" onclick="Activate('Settings')">Settings</h3>
+            </div>
+            <div class="content display">
+                <div id="Track">
+                    <h1 class="content-title">Track your order</h1>
+                    <h3 class="content-subtitle">Check out the latest progress on your order.</h1><hr>
+                    <div id="input" class="content-inner">
+                        <h2>Insert Tracking Number</h2>
+                        <h3>EP - <input id="tracknum" maxlength="7"></h3><br>
+                        <a class="trackorder" onclick="Track()">Track</a><br><br>
+                        <p id="ErrorOutput"></p>
+                        <br><br>
+                        <p>Alternatively, use the link provided.</p>
+                    </div>
+                    
+                    <div id="tracking" class="content-inner" style="display: none">
+                        <h2 id="currently-tracking">currently-tracking</h2>
+                        <h3 id="currently-tracking-name">currently-tracking</h3>
+                        <br><hr><br>
+                        <p id="currently-tracking-info">currently-tracking</p>
+                        <br>
+                        <div class="progress">
+                            <div id="track-1" class="progress-item"></div>
+                            <div id="track-2" class="progress-item"></div>
+                            <div id="track-3" class="progress-item"></div>
+                            <div id="track-4" class="progress-item"></div>
+                            <div id="track-5" class="progress-item"></div>
+                            <div id="track-6" class="progress-item"></div>
+                            <div id="track-7" class="progress-item"></div>
+                            <!-- Titles -->
+                            <div class="progress-title">Order Received</div>
+                            <div class="progress-title">Initial Payment Received</div>
+                            <div class="progress-title">Preparing</div>
+                            <div class="progress-title">Awaiting Check</div>
+                            <div class="progress-title">Delivered</div>
+                            <div class="progress-title">Fully Paid</div>
+                            <div class="progress-title">Finished</div>
+                        </div>
+                        <div id="logs">
+
+                        </div>
+                    </div>
+                </div>
+                <div id="Settings" style="display: none;">
+                    <h1 class="content-title">Settings</h1>
+                    <h3 class="content-subtitle">Modify client settings.</h1>
+                    <div class="content-inner">
+                        Error
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
