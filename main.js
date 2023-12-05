@@ -3,17 +3,26 @@ function Activate(Category) {
         document.getElementById("Track").style.display = "block";
         document.getElementById("Settings").style.display = "none";
         document.getElementById("Order").style.display = "none";
+        document.getElementById("Feedback").style.display = "none";
         console.log("Track");
     } else if (Category == "Settings") {
         document.getElementById("Settings").style.display = "block";
         document.getElementById("Track").style.display = "none";
         document.getElementById("Order").style.display = "none";
+        document.getElementById("Feedback").style.display = "none";
         console.log("Settings");
     } else if (Category == "Order") {
         document.getElementById("Settings").style.display = "none";
         document.getElementById("Track").style.display = "none";
         document.getElementById("Order").style.display = "block";
+        document.getElementById("Feedback").style.display = "none";
         console.log("Order");
+    } else if (Category == "Feedback") {
+        document.getElementById("Settings").style.display = "none";
+        document.getElementById("Track").style.display = "none";
+        document.getElementById("Order").style.display = "none";
+        document.getElementById("Feedback").style.display = "block";
+        console.log("Feedback");
     } 
 }
 
@@ -213,15 +222,26 @@ async function Track() {
 
 
         if (data["review"] != "") {
-            document.getElementById("data-9").innerText = data["review"];
+            document.getElementById("data-9").innerText = data["review"] + " left";
         } else {
             document.getElementById("data-9").innerText = "Not Provided";
         }
 
         if (data["price"] != "") {
             document.getElementById("data-10").innerText = "RM" + data["price"];
+            document.getElementById("currently-tracking-money").innerText = "RM" + data["price"];
         } else {
             document.getElementById("data-10").innerText = "Not Provided";
+            document.getElementById("currently-tracking-money").innerText = "Not Provided";
+        }
+
+        dataSplit2 = data["2"].split("|")
+        if (data["2"] == "") {
+            document.getElementById("currently-tracking-payment").innerHTML = "Currently Unpaid";
+        } else if (dataSplit2[0] == "C") {
+            document.getElementById("currently-tracking-payment").innerHTML = "<span style='color: red'>Payment Cancelled</span>";
+        } else {
+            document.getElementById("currently-tracking-payment").innerHTML = "Paid with " + data["Payment"];
         }
 
 
@@ -229,7 +249,6 @@ async function Track() {
 
         document.getElementById("currently-tracking").innerHTML = "Order Number: " + id;
         document.getElementById("currently-tracking-name").innerText = "Client Name: " + data["ClientName"];
-        document.getElementById("currently-tracking-payment").innerText = "Paid with " + data["Payment"];
         document.getElementById("currently-information").innerHTML = "<b>Additional Information</b><br><br>" + data["other"];
         document.getElementById("delivered-via").innerText = data["Delivery"];
         document.getElementById("expected-delivery").innerText = data["DeliveryDate"];

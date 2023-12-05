@@ -27,6 +27,7 @@
                     <h1 class="nav-title">Dashboard</h1>
                     <h3 class="nav-button" onclick="Activate('Track')">Track Order</h3>
                     <h3 class="nav-button" onclick="Activate('Order')">Order</h3>
+                    <h3 class="nav-button" onclick="Activate('Feedback')">Feedback</h3>
                     <!-- <h3 class="nav-button">Support</h3>
                     <h3 class="nav-button">Dev</h3>-->
                     <h3 class="nav-button bottom" onclick="Activate('Settings')">Settings</h3>
@@ -34,23 +35,30 @@
                 <div class="content display">
                     <div id="Track">
                         <h1 class="content-title">Track your order</h1>
-                        <h3 class="content-subtitle">Check out the latest progress on your order.</h1><hr>
+                        <h3 class="content-subtitle">Check out the latest progress on your order.</h1>
                         <div id="input" class="content-inner">
+                            <br><hr><br>
                             <h2>Insert Tracking Number</h2>
-                            <h3>EP - <input id="tracknum" maxlength="7"></h3><br>
-                            <a class="trackorder f-black" onclick="Track()">Track</a><br><br>
+                            <h3>EP - <input id="tracknum" maxlength="7" autocomplete="off"></h3><br>
+                            <a class="trackorder f-black" id="Track1S" onclick="Track()">Track</a><br><br>
                             <p id="ErrorOutput"></p>
                             <br><br>
                             <p>Alternatively, use the link provided.</p>
                         </div>
-                        
                         <div id="tracking" class="content-inner" style="display: none">
+                            <br>
                             <p id="UpdateOutput"></p>
-                            <h2 id="currently-tracking">currently-tracking</h2>
-                            <h4 id="currently-tracking-name">currently-tracking</h4>
-                            <h4 id="currently-tracking-payment">currently-tracking</h4>
-                            <hr><br>
-                            <h2>Progress</h2>
+                            <div class="info-bg">
+                                <div class="info-bg-inner">
+                                    <h1 id="currently-tracking">currently-tracking</h1>
+                                    <h3 id="currently-tracking-name">currently-tracking</h3>
+                                </div>
+                                <div class="info-bg-inner">
+                                    <h1 id="currently-tracking-money">currently-tracking</h1>
+                                    <h3 id="currently-tracking-payment">currently-tracking</h3>
+                                </div>
+                            </div>
+                            <h2>Order Progress</h2>
                             <div class="progress">
                                 <div id="track-1" class="progress-item"></div>
                                 <div id="track-2" class="progress-item"></div>
@@ -85,10 +93,9 @@
                                     <h4 id="ready-in">ready-in</h4>
                                 </div>
                             </div>
-                            <hr><br>
+                            <br><br>
                             <p id="currently-information">currently-information</p>
-                            <br>
-                            <hr>
+                            <br><br>
                             <h2>Order Details</h2>
                             <div class="track-info">
                                 <div class="track-info-item f-black" id="length"><p>Video Length</p><h2 id="data-1"></h2></div>
@@ -106,22 +113,31 @@
                             <button class="xx" id="Update" onclick="Update()">Refresh</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button class="xx" onclick="Exit()">Exit</button><br><br>
                         </div>
                     </div>
+                    <!-- Feedback -->
+                    <div id="Feedback" style="display: none;">
+                        <h1 class="content-title">Feedback</h1>
+                        <h3 class="content-subtitle">Submit your feedback!</h1>
+                        <br><hr><br>
+                        <div class="content-inner">
+                            Coming soon...
+                        </div>
+                    </div>
                     <!-- Settings -->
                     <div id="Settings" style="display: none;">
                         <h1 class="content-title">Settings</h1>
                         <h3 class="content-subtitle">Modify client settings.</h1>
-                        <hr>
+                        <br><hr><br>
                         <div class="content-inner">
                             <button class="xx" onclick="DrkM()">Dark Mode</button>
                             <br>
-                            <p>This website was built by Eason</p>
+                            <p>Cdash // dash.epiceason.com v1.0.2<br>This website was built by Eason</p>
                         </div>
                     </div>
                     <!-- Order -->
                     <div id="Order" style="display: none;">
                         <h1 class="content-title">Order Now</h1>
                         <h3 class="content-subtitle">Place a new order</h1>
-                        <hr>
+                        <br><hr><br>
                         <div class="content-inner">
                             Error
                         </div>
@@ -177,5 +193,13 @@
                 document.getElementById("haha").classList.add("dark-mode");
             }
         }
+
+        var input = document.getElementById("tracknum");
+        input.addEventListener("keypress", function(event) {
+        if (event.key === "Enter") {
+            event.preventDefault();
+            document.getElementById("Track1S").click();
+        }
+        });
     </script>
 </html>
