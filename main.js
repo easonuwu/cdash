@@ -52,13 +52,13 @@ async function Update() {
 }
 
 async function Track() {
+    document.getElementById("ErrorOutput").innerText = "Loading..."
     document.getElementById("logs").innerHTML = ""
     const id = document.getElementById("tracknum").value;
     const link = "https://raw.githubusercontent.com/easonuwu/ep-tracker/main/data/"
     try {
         const response = await fetch(link + 'EP' + id + '.json');
         const data = await response.json();
-        document.getElementById("ErrorOutput").innerText = "Loading..."
         // Making Data
         // Track Progress
         // 1
@@ -167,7 +167,6 @@ async function Track() {
         }
 
         // Down Data's ////////////////////////////////////
-        data["length"] = "123:31"
 
         if (data["length"] != "") {
             document.getElementById("data-1").innerText = data["length"];
@@ -213,20 +212,31 @@ async function Track() {
         }
 
 
-        if (data["other"] != "") {
-            document.getElementById("data-8").innerText = data["other"];
+        if (data["review"] != "") {
+            document.getElementById("data-9").innerText = data["review"];
         } else {
-            document.getElementById("data-8").innerText = "Not Provided";
+            document.getElementById("data-9").innerText = "Not Provided";
+        }
+
+        if (data["price"] != "") {
+            document.getElementById("data-10").innerText = "RM" + data["price"];
+        } else {
+            document.getElementById("data-10").innerText = "Not Provided";
         }
 
 
         ///////////////////////////////////////////////////
 
-        document.getElementById("currently-tracking").innerText = "Tracking: " + id;
-        document.getElementById("currently-tracking-name").innerText = "Client: " + data["ClientName"];
-        document.getElementById("currently-information").innerHTML = "<b>Information</b><br>" + data["Info"];
+        document.getElementById("currently-tracking").innerHTML = "Order Number: " + id;
+        document.getElementById("currently-tracking-name").innerText = "Client Name: " + data["ClientName"];
+        document.getElementById("currently-tracking-payment").innerText = "Paid with " + data["Payment"];
+        document.getElementById("currently-information").innerHTML = "<b>Additional Information</b><br><br>" + data["other"];
+        document.getElementById("delivered-via").innerText = data["Delivery"];
+        document.getElementById("expected-delivery").innerText = data["DeliveryDate"];
+        document.getElementById("ready-in").innerText = data["ReadyIn"];
 
-        // Enable
+        // Enable /////////////////////////////////////////
+
         document.getElementById("tracking").style.display = "block";
         document.getElementById("input").style.display = "none";
     } catch {

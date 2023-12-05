@@ -45,8 +45,10 @@
                         </div>
                         
                         <div id="tracking" class="content-inner" style="display: none">
+                            <p id="UpdateOutput"></p>
                             <h2 id="currently-tracking">currently-tracking</h2>
-                            <h3 id="currently-tracking-name">currently-tracking</h3>
+                            <h4 id="currently-tracking-name">currently-tracking</h4>
+                            <h4 id="currently-tracking-payment">currently-tracking</h4>
                             <hr><br>
                             <h2>Progress</h2>
                             <div class="progress">
@@ -66,13 +68,25 @@
                                 <div class="progress-title">Fully Paid</div>
                                 <div class="progress-title">Finished</div>
                             </div>
-                            <button class="xx" id="Update" onclick="Update()">Refresh</button> <button class="xx" onclick="Exit()">Exit</button><br><br>
-                            <p id="UpdateOutput"></p>
                             <div id="logs">
     
                             </div><br>
+                            <div class="cross-bg">
+                                <div>
+                                    <h2>Delivered via</h2>
+                                    <h4 id="delivered-via">delivered-via</h4>
+                                </div>
+                                <div>
+                                    <h2>Expected Delivery Time</h2>
+                                    <h4 id="expected-delivery">expected-delivery</h4>
+                                </div>
+                                <div>
+                                    <h2>Ready in</h2>
+                                    <h4 id="ready-in">ready-in</h4>
+                                </div>
+                            </div>
                             <hr><br>
-                            <p id="currently-information">currently-tracking</p>
+                            <p id="currently-information">currently-information</p>
                             <br>
                             <hr>
                             <h2>Order Details</h2>
@@ -85,7 +99,11 @@
                                 <div class="track-info-item f-black" id="sound"><p>Sound Effects</p><h2 id="data-6"></h2></div>
                                 <div class="track-info-item f-black" id="bgm"><p>Background Music</p><h2 id="data-7"></h2></div>
                                 <div class="track-info-item f-black" id=""><p>N/A</p><h2 id="data-8"></h2></div>
+                                <div class="track-info-item f-black" id=""><p>Review Credit</p><h2 id="data-9"></h2></div>
+                                <div class="track-info-item f-black" id=""><p>Total Payment</p><h2 id="data-10"></h2></div>
                             </div>
+                            <br><br>
+                            <button class="xx" id="Update" onclick="Update()">Refresh</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button class="xx" onclick="Exit()">Exit</button><br><br>
                         </div>
                     </div>
                     <!-- Settings -->
