@@ -1,86 +1,163 @@
 <!DOCTYPE html>
-<html>
+<html id="haha" class="">
     <head>
         <title>Client Dashboard | EpicEason</title>
         <link rel="stylesheet" href="/src/theme.css">
         <link rel="stylesheet" href="/src/home.css">
+        <link rel="icon" type="image/x-icon" href="/src/favicon.ico">
         <script src="main.js"></script>
     </head>
     <body>
-        
-        <div class="container-load"  id="load">
-            <div class="content-load">
-                <h1>:EpicEason</h1>
-                <span id="state">The dashboard is loading.. // loading cdash</span>
-                <div class="loader"></div>
-            </div>
-        </div>
-
-        <div class="container">
-            <div class="content nav">
-                <h1 class="nav-title">Dashboard</h1>
-                <h3 class="nav-button" onclick="Activate('Track')">Track Order</h3>
-                <!-- <h3 class="nav-button">Orders</h3>
-                <h3 class="nav-button">Support</h3>
-                <h3 class="nav-button">Dev</h3>-->
-                <h3 class="nav-button bottom" onclick="Activate('Settings')">Settings</h3>
-            </div>
-            <div class="content display">
-                <div id="Track">
-                    <h1 class="content-title">Track your order</h1>
-                    <h3 class="content-subtitle">Check out the latest progress on your order.</h1><hr>
-                    <div id="input" class="content-inner">
-                        <h2>Insert Tracking Number</h2>
-                        <h3>EP - <input id="tracknum" maxlength="7"></h3><br>
-                        <a class="trackorder" onclick="Track()">Track</a><br><br>
-                        <p id="ErrorOutput"></p>
-                        <br><br>
-                        <p>Alternatively, use the link provided.</p>
-                    </div>
-                    
-                    <div id="tracking" class="content-inner" style="display: none">
-                        <h2 id="currently-tracking">currently-tracking</h2>
-                        <h3 id="currently-tracking-name">currently-tracking</h3>
-                        <hr><br>
-                        <p id="currently-information">currently-tracking</p>
-                        <br>
-                        <div class="progress">
-                            <div id="track-1" class="progress-item"></div>
-                            <div id="track-2" class="progress-item"></div>
-                            <div id="track-3" class="progress-item"></div>
-                            <div id="track-4" class="progress-item"></div>
-                            <div id="track-5" class="progress-item"></div>
-                            <div id="track-6" class="progress-item"></div>
-                            <div id="track-7" class="progress-item"></div>
-                            <!-- Titles -->
-                            <div class="progress-title">Order Received</div>
-                            <div class="progress-title">Initial Payment Received</div>
-                            <div class="progress-title">Preparing</div>
-                            <div class="progress-title">Awaiting Check</div>
-                            <div class="progress-title">Delivered</div>
-                            <div class="progress-title">Fully Paid</div>
-                            <div class="progress-title">Finished</div>
-                        </div>
-                        <button class="xx" id="Update" onclick="Update()">Refresh</button> <button class="xx" onclick="Exit()">Exit</button><br><br>
-                        <p id="UpdateOutput"></p>
-                        <div id="logs">
-
-                        </div>
-                    </div>
+        <div id="main">
+            <div class="container-load"  id="load">
+                <div class="content-load">
+                    <h1>:EpicEason</h1>
+                    <span id="state">The dashboard is loading.. // loading cdash</span>
+                    <div class="loader"></div>
                 </div>
-                <div id="Settings" style="display: none;">
-                    <h1 class="content-title">Settings</h1>
-                    <h3 class="content-subtitle">Modify client settings.</h1>
-                    <div class="content-inner">
-                        Error
+            </div>
+    
+            <div class="container">
+                <div class="content blank">
+                    <p>
+    
+                    </p>
+                </div>
+                <div class="content nav">
+                    <h1 class="nav-title">Dashboard</h1>
+                    <h3 class="nav-button" onclick="Activate('Track')">Track Order</h3>
+                    <h3 class="nav-button" onclick="Activate('Order')">Order</h3>
+                    <!-- <h3 class="nav-button">Support</h3>
+                    <h3 class="nav-button">Dev</h3>-->
+                    <h3 class="nav-button bottom" onclick="Activate('Settings')">Settings</h3>
+                </div>
+                <div class="content display">
+                    <div id="Track">
+                        <h1 class="content-title">Track your order</h1>
+                        <h3 class="content-subtitle">Check out the latest progress on your order.</h1><hr>
+                        <div id="input" class="content-inner">
+                            <h2>Insert Tracking Number</h2>
+                            <h3>EP - <input id="tracknum" maxlength="7"></h3><br>
+                            <a class="trackorder f-black" onclick="Track()">Track</a><br><br>
+                            <p id="ErrorOutput"></p>
+                            <br><br>
+                            <p>Alternatively, use the link provided.</p>
+                        </div>
+                        
+                        <div id="tracking" class="content-inner" style="display: none">
+                            <h2 id="currently-tracking">currently-tracking</h2>
+                            <h3 id="currently-tracking-name">currently-tracking</h3>
+                            <hr><br>
+                            <h2>Progress</h2>
+                            <div class="progress">
+                                <div id="track-1" class="progress-item"></div>
+                                <div id="track-2" class="progress-item"></div>
+                                <div id="track-3" class="progress-item"></div>
+                                <div id="track-4" class="progress-item"></div>
+                                <div id="track-5" class="progress-item"></div>
+                                <div id="track-6" class="progress-item"></div>
+                                <div id="track-7" class="progress-item"></div>
+                                <!-- Titles -->
+                                <div class="progress-title">Order Received</div>
+                                <div class="progress-title">Initial Payment Received</div>
+                                <div class="progress-title">Preparing</div>
+                                <div class="progress-title">Awaiting Check</div>
+                                <div class="progress-title">Delivered</div>
+                                <div class="progress-title">Fully Paid</div>
+                                <div class="progress-title">Finished</div>
+                            </div>
+                            <button class="xx" id="Update" onclick="Update()">Refresh</button> <button class="xx" onclick="Exit()">Exit</button><br><br>
+                            <p id="UpdateOutput"></p>
+                            <div id="logs">
+    
+                            </div><br>
+                            <hr><br>
+                            <p id="currently-information">currently-tracking</p>
+                            <br>
+                            <hr>
+                            <h2>Order Details</h2>
+                            <div class="track-info">
+                                <div class="track-info-item f-black" id="length"><p>Video Length</p><h2 id="data-1"></h2></div>
+                                <div class="track-info-item f-black" id="effects"><p>Effects</p><h2 id="data-2"></h2></div>
+                                <div class="track-info-item f-black" id="subtitles"><p>Subtitles</p><h2 id="data-3"></h2></div>
+                                <div class="track-info-item f-black" id="title"><p>Title/Endings</p><h2 id="data-4"></h2></div>
+                                <div class="track-info-item f-black" id="thumbnail"><p>Thumbnails</p><h2 id="data-5"></h2></div>
+                                <div class="track-info-item f-black" id="sound"><p>Sound Effects</p><h2 id="data-6"></h2></div>
+                                <div class="track-info-item f-black" id="bgm"><p>Background Music</p><h2 id="data-7"></h2></div>
+                                <div class="track-info-item f-black" id=""><p>N/A</p><h2 id="data-8"></h2></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Settings -->
+                    <div id="Settings" style="display: none;">
+                        <h1 class="content-title">Settings</h1>
+                        <h3 class="content-subtitle">Modify client settings.</h1>
+                        <hr>
+                        <div class="content-inner">
+                            <button class="xx" onclick="DrkM()">Dark Mode</button>
+                            <br>
+                            <p>This website was built by Eason</p>
+                        </div>
+                    </div>
+                    <!-- Order -->
+                    <div id="Order" style="display: none;">
+                        <h1 class="content-title">Order Now</h1>
+                        <h3 class="content-subtitle">Place a new order</h1>
+                        <hr>
+                        <div class="content-inner">
+                            Error
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </body>
     <script>
+        function DrkM() {
+            document.getElementById("haha").classList.toggle("dark-mode");
+            try {
+                const theme = localStorage.getItem("theme");
+                if (theme == "dark") {
+                    if (typeof(Storage) !== "undefined") {
+                        localStorage.setItem("theme", "light");
+                    } else {
+                        console.log("No storage!")
+                    }
+                } else {
+                    if (typeof(Storage) !== "undefined") {
+                        localStorage.setItem("theme", "dark");
+                    } else {
+                        console.log("No storage!")
+                    }
+                }
+            } catch {
+                if (typeof(Storage) !== "undefined") {
+                    localStorage.setItem("theme", "dark");
+                } else {
+                    console.log("No storage!")
+                }
+            }
+        }
+
         setInterval(function() {
             document.getElementById("load").style.display = "none";
         }, 1500);
+
+        window.onload = function(){
+            const queryString = window.location.search;
+            const urlParams = new URLSearchParams(queryString);
+            const product = urlParams.get('track');
+            if (urlParams.has('track')){
+                document.getElementById("tracknum").value = product
+                Track()
+            };
+        }
+
+        window.onload = function(){
+            const theme = localStorage.getItem("theme");
+            if (theme == "dark") {
+                document.getElementById("haha").classList.add("dark-mode");
+            }
+        }
     </script>
 </html>

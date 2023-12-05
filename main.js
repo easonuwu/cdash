@@ -2,11 +2,18 @@ function Activate(Category) {
     if (Category == "Track") {
         document.getElementById("Track").style.display = "block";
         document.getElementById("Settings").style.display = "none";
+        document.getElementById("Order").style.display = "none";
         console.log("Track");
     } else if (Category == "Settings") {
         document.getElementById("Settings").style.display = "block";
         document.getElementById("Track").style.display = "none";
+        document.getElementById("Order").style.display = "none";
         console.log("Settings");
+    } else if (Category == "Order") {
+        document.getElementById("Settings").style.display = "none";
+        document.getElementById("Track").style.display = "none";
+        document.getElementById("Order").style.display = "block";
+        console.log("Order");
     } 
 }
 
@@ -47,7 +54,7 @@ async function Update() {
 async function Track() {
     document.getElementById("logs").innerHTML = ""
     const id = document.getElementById("tracknum").value;
-    const link = "https://track.api.projects.epiceason.com/data/"
+    const link = "https://raw.githubusercontent.com/easonuwu/ep-tracker/main/data/"
     try {
         const response = await fetch(link + 'EP' + id + '.json');
         const data = await response.json();
@@ -158,6 +165,62 @@ async function Track() {
             addLog(array1);
             }
         }
+
+        // Down Data's ////////////////////////////////////
+        data["length"] = "123:31"
+
+        if (data["length"] != "") {
+            document.getElementById("data-1").innerText = data["length"];
+        } else {
+            document.getElementById("data-1").innerText = "Not Provided";
+        }
+
+        if (data["effects"] != "") {
+            document.getElementById("data-2").innerText = data["effects"];
+        } else {
+            document.getElementById("data-2").innerText = "Not Provided";
+        }
+
+        if (data["subtitles"] != "") {
+            document.getElementById("data-3").innerText = data["subtitles"];
+        } else {
+            document.getElementById("data-3").innerText = "Not Provided";
+        }
+
+        if (data["title"] != "") {
+            document.getElementById("data-4").innerText = data["title"];
+        } else {
+            document.getElementById("data-4").innerText = "Not Provided";
+        }
+
+        if (data["thumbnails"] != "") {
+            document.getElementById("data-5").innerText = data["thumbnails"];
+        } else {
+            document.getElementById("data-5").innerText = "Not Provided";
+        }
+
+        if (data["sound"] != "") {
+            document.getElementById("data-6").innerText = data["sound"];
+        } else {
+            document.getElementById("data-6").innerText = "Not Provided";
+        }
+
+
+        if (data["bgm"] != "") {
+            document.getElementById("data-7").innerText = data["bgm"];
+        } else {
+            document.getElementById("data-7").innerText = "Not Provided";
+        }
+
+
+        if (data["other"] != "") {
+            document.getElementById("data-8").innerText = data["other"];
+        } else {
+            document.getElementById("data-8").innerText = "Not Provided";
+        }
+
+
+        ///////////////////////////////////////////////////
 
         document.getElementById("currently-tracking").innerText = "Tracking: " + id;
         document.getElementById("currently-tracking-name").innerText = "Client: " + data["ClientName"];
